@@ -8,6 +8,7 @@ function domingos() {
     let dia = prompt("Introduce el día de tu cumpleaños")
     let year = new Date().getFullYear();
     let contador = 0;
+    let coinciden = "Son: "
 
     while (year <= 2100) {
         
@@ -16,10 +17,11 @@ function domingos() {
         
         if (d.getDay(d) == 0) {
             contador++;
+            coinciden += year + ", "
         }
         year++
     }
     console.log(contador);
-    alert("Hay " + contador + " años\nque tu cumpleaños será domingo")
+    alert("Hay " + contador + " años donde tu cumpleaños será domingo\n" + coinciden);
 
 }
