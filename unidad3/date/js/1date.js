@@ -1,6 +1,5 @@
 /**
  * Función que devuelve los días que faltan hasta el fin de curso desde la fecha de hoy. 
- * @returns 
  */
 function diasfaltan() {
 
