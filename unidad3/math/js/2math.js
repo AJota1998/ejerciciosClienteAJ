@@ -7,6 +7,7 @@
 function radio() {
 
     let radio = prompt("Introduzca el valor del radio");
+    console.log(radio);
     const $nPI = Math.PI;
 
     let valor = radio;

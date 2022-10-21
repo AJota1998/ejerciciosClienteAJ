@@ -5,6 +5,7 @@
 function fecha() {
 
     let formatoUsuario = prompt("Introduzca:\n1 para formato 15/10/2022\n2 para formato Jueves, 15 de octubre de 2020\n3 para formato Thursday, October 15, 2020");
+    console.log(formatoUsuario);
 
     let formato1 = new Date().toLocaleDateString();
     let formato2 = new Date().toLocaleDateString('es', {weekday:"long", month:"long", year:"numeric", day:"numeric"});
