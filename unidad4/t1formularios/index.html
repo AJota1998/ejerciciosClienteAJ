@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form t1</title>
+</head>
+<body>
+
+    <form>
+
+        <fieldset style="width: 25%;">
+            <legend>Formulario T1</legend>
+            <div>
+                <label for="nombreDisco">Nombre del disco: </label>
+                <input id="impnombreDisco" type="text">
+            </div>
+            <div>
+                <label for="grupo">Grupo de música o cantante: </label>
+                <input id="impgrupo" type="text">
+            </div>
+            <div>
+                <label for="anioPublicacion">Año de publicación: </label>
+                <input id="impanioPublicacion" type="text">
+            </div>
+            <div>
+                <label for="tipoMusica">Tipo de música: </label>
+                <select name="stm" id="selecttipoMusica">
+                    <option value="rock">rock</option>
+                    <option value="rock">pop</option>
+                    <option value="rock">punk</option>
+                    <option value="rock">indie</option>
+                </select>
+            </div>
+            <div>
+                <label for="localizacion">Localización: </label>
+                <input id="implocalizacion" type="text">
+            </div>
+            <div>
+                <label for="prestado">Prestado: </label>
+                <div>
+                    <input name="opcionseleccionada" id="impTrue" type="radio">
+                    <label for="opciontrue">True</label>
+                    <input name="opcionseleccionada" id="impFalse" type="radio">
+                    <label for="opcionfalse">False</label>
+                </div>
+            </div>
+        </fieldset>
+
+    </form>
+    
+</body>
+</html>
