@@ -1,5 +1,10 @@
+/**
+ * Función que recibe una fecha y calcula el signo del horoscopo egipcio
+ * @param {String} fecha 
+ */
 function horoscopo(fecha) {
 
+    console.log("Entrando en función horoscopo");
     let fnaci = new Date(fecha)
     console.log(fnaci)
 
@@ -9,76 +14,63 @@ function horoscopo(fecha) {
     let dia = fnaci.getDate()
     console.log(dia)
 
-    let valor = numHoroscopo(dia, mes)
-    console.log(valor)
+    let resultado = numHoroscopo(dia, mes)
 
-    let resultado = signo(valor)
-    console.log(resultado)
-
-    alert(resultado)
+    console.log("Saliendo de la función horoscopo con resultado: " + resultado)
+    alert("Tu signo es: " + resultado)
 }
 
+/**
+ * Función que devuelve el signo del horoscopo en un string 
+ * al pasarles dia y mes de una fecha
+ * @param {Number} dia 
+ * @param {Number} mes 
+ * @returns {String} 
+ */
 function numHoroscopo(dia, mes) {
-debugger
+
+    console.log("Entrando en la función numHoroscopo");
     let resultado
 
-    switch (dia, mes) {
-        case ((dia >= 16 && dia <= 31 && mes == 1) || (dia >= 1 && dia <= 15 && mes == 2)) :
-            resultado = 1;
+    switch (mes) {
+        case 1 :
+            (dia >= 1 && dia <= 15)? resultado = "Hijos de Anubis" : "Hijos de Bastset";
             break;
-        case ((dia >= 16 && dia <= 31 && mes == 2) || (dia >= 1 && dia <= 15 && mes == 3)) :
-            resultado = 2;
+        case 2 :
+            (dia >= 1 && dia <= 15)? resultado = "Hijos de Bastset" : "Hijos de Selket";
             break;
-        case ((dia >= 16 && dia <= 31 && mes == 3) || (dia >= 1 && dia <= 15 && mes == 4)) :
-            resultado = 3;
+        case 3 :
+            (dia >= 1 && dia <= 15)? resultado = "Hijos de Selket" : "Hijos de Apep";
             break;
-        case ((dia >= 16 && dia <= 31 && mes == 4) || (dia >= 1 && dia <= 15 && mes == 5)) : 
-            resultado = 4;
+        case 4 : 
+            (dia >= 1 && dia <= 15)? resultado = "Hijos de Apep" : "Hijos de Ptah";
             break;
-        case ((dia >= 16 && dia <= 31 && mes == 5) || (dia >= 1 && dia <= 15 && mes == 6)) :
-            resultado = 5;
+        case 5 :
+            (dia >= 1 && dia <= 15)? resultado = "Hijos de Ptah" : "Hijos de Thot";
             break;
-        case ((dia >= 16 && dia <= 31 && mes == 6) || (dia >= 1 && dia <= 15 && mes == 7)) : 
-            resultado = 6;
+        case 6 : 
+            (dia >= 1 && dia <= 15)? resultado = "Hijos de Thot" : "Hijos de Isis";
             break;
-        case ((dia >= 16 && dia <= 31 && mes == 7) || (dia >= 1 && dia <= 15 && mes == 8)) :
-            resultado = 7;
+        case 7 :
+            (dia >= 1 && dia <= 15)? resultado = "Hijos de Isis" : "Hijos de Ra";
             break;
-        case ((dia >= 16 && dia <= 31 && mes == 8) || (dia >= 1 && dia <= 15 && mes == 9)) :
-            resultado = 8;
+        case 8 :
+            (dia >= 1 && dia <= 15)? resultado = "Hijos de Ra" : "Hijos de Horus";
             break;
-        case ((dia >= 16 && dia <= 31 && mes == 9) || (dia >= 1 && dia <= 15 && mes == 10)) : 
-            resultado = 9;
+        case 9 : 
+            (dia >= 1 && dia <= 15)? resultado = "Hijos de Horus" : "Hijos de Maat";
             break;
-        case ((dia >= 16 && dia <= 31 && mes == 10) || (dia >= 1 && dia <= 15 && mes == 11)) : 
-            resultado = 10;
+        case 10 : 
+            (dia >= 1 && dia <= 15)? resultado = "Hijos de Maat" : "Hijos de Osiris";
             break;
-        case ((dia >= 16 && dia <= 31 && mes == 11) || (dia >= 1 && dia <= 15 && mes == 12)) : 
-            resultado = 11;
+        case 11 : 
+            (dia >= 1 && dia <= 15)? resultado = "Hijos de Osiris" : "Hijos de Hathor";
             break;
-        case ((dia >= 16 && dia <= 31 && mes == 12) || (dia >= 1 && dia <= 15 && mes == 1)) :
-            resultado = 12;
+        case 12 :
+            (dia >= 1 && dia <= 15)? resultado = "Hijos de Hathor" : "Hijos de Anubis";
             break;
         default: null;
     }
-    return resultado;
-}
-
-function signo(resultado) {
-    
-    let signo
-    (resultado == 1)? signo = "Bastset, la diosa del gato" : 
-    (resultado == 2)? signo = "Selket, la madre" :
-    (resultado == 3)? signo = "Hijos de Apep, la serpiente sagrada" :
-    (resultado == 4)? signo = "Hijos de Ptah, el que abre" :
-    (resultado == 5)? signo = "Hijos de Atum, el dios del sol" :
-    (resultado == 6)? signo = "Hijos de Isis, la media luna" :
-    (resultado == 7)? signo = "Hijos Ra, el sol" :
-    (resultado == 8)? signo = "Hijos de Horus, el halcón" :
-    (resultado == 9)? signo = "Hijos de Maat, la justicia" :
-    (resultado == 10)? signo = "Hijos de Osiris, dios de la agricultura y la religión" :
-    (resultado == 11)? signo = "Hijos de Hato, madre de la femineidad" :
-    (resultado == 12)? signo = "Hijos de Anubis, el chacal" :
-    resultado = null;
+    console.log("Saliendo de la función numHoroscopo con resultado: " + resultado);
     return resultado;
 }
