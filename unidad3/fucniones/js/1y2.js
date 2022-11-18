@@ -43,3 +43,13 @@ function validarValorPositivo(valor) {
     
     return (valor != null && valor != undefined && valor > 0) ? true : false;
 }
+
+// ----------------------------EJ2------------------------------------ //
+
+/**
+ * Función flecha que devuelve si un número es par o impar
+ * @param {Number} numero
+ */
+let espar = (numero) => (numero % 2 == 0 && validarValorPositivo(numero)) ? alert("el número es par") :
+(numero % 2 != 0 && validarValorPositivo(numero)) ? alert("el número es impar") : alert("Error en los datos");
+
