@@ -14,8 +14,15 @@ function getElementById(id) {
     return resultado;
 }
 
-// Obtenemos el formulario
+// Obtenemos el formulario y los input a los que vamos a añadir un evento
 let form = document.getElementById('formulario');
+let nombreDisco = document.getElementById("impnombreDisco");
+let grupo = document.getElementById("impgrupo");
+
+// añadimos el evento
+nombreDisco.addEventListener("keyup", coloresFormulario, false);
+grupo.addEventListener("keyup", coloresFormulario, false);
+form.addEventListener('submit', handleSubmit, false);
 
 /**
  * Función para validar los campos del formulario
@@ -82,7 +89,20 @@ function isvalidlocal(local) {
     return resultado;
 }
 
-// añadiendo el evento de submit al formulario
-form.addEventListener('submit', handleSubmit);
+/**
+ * Función para añadir una clase css a un input
+ * @param {Event} e 
+ */
+function coloresFormulario(e) {
+
+    console.log("Entrando en la función coloresFormulario");
+    let input = e.currentTarget;
+    let valor = input.value;
+    
+    (isvalidCampo20(valor)) ? input.className="bordeVerde" : input.className="bordeRojo";
+    console.log("Saliendo de la función coloresFormulario");
+}
+
+
 
 
