@@ -32,7 +32,7 @@ function deletefirst() {
     console.log("Entrando en la función deletefirst");
 
     let lista = document.getElementById("lista");
-    let elementoBorrar = lista.firstChild;
+    let elementoBorrar = lista.firstElementChild;
     lista.removeChild(elementoBorrar);
 
     console.log("Saliendo de la función deletefirst");
@@ -46,7 +46,7 @@ function deletelast() {
     console.log("Entrando en la función deletelast");
 
     let lista = document.getElementById("lista");
-    let elementoBorrar = lista.lastChild;
+    let elementoBorrar = lista.lastElementChild;
     lista.removeChild(elementoBorrar);
 
     console.log("Saliendo de la función deletelast");
