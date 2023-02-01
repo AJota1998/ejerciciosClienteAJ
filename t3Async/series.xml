@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<SERIES>
+    <SERIE>
+        <TITULO>Lost</TITULO>
+        <CADENA>La Sexta</CADENA>
+        <DIRECTOR>Juan Manuel</DIRECTOR>
+        <ANIO>1998</ANIO>
+        <TERMINADO>SI</TERMINADO>
+    </SERIE>
+    <SERIE>
+        <TITULO>Sky Rojo</TITULO>
+        <CADENA>Netflix</CADENA>
+        <DIRECTOR>Alberto mate</DIRECTOR>
+        <ANIO>2020</ANIO>
+        <TERMINADO>SI</TERMINADO>
+    </SERIE>
+    <SERIE>
+        <TITULO>Elite</TITULO>
+        <CADENA>Netflix</CADENA>
+        <DIRECTOR>Ana Felix</DIRECTOR>
+        <ANIO>2017</ANIO>
+        <TERMINADO>NO</TERMINADO>
+    </SERIE>
+</SERIES>
