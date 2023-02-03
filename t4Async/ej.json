@@ -1,0 +1,29 @@
+{
+    "SERIES": [
+      {
+        "SERIE": [
+          {
+            "TITULO": "lost",
+            "CADENA": "la sexta",
+            "DIRECTOR": "Alberto Mate",
+            "ANIO": 1998,
+            "TERMINADO": "SI"
+          },
+          {
+            "TITULO": "sky rojo",
+            "CADENA": "netflix",
+            "DIRECTOR": "Chema honesa",
+            "ANIO": 2007,
+            "TERMINADO": "SI"
+          },
+          {
+            "TITULO": "elite",
+            "CADENA": "hbo",
+            "DIRECTOR": "Aitor tilla",
+            "ANIO": 2019,
+            "TERMINADO": "NO"
+          }
+        ]
+      }
+    ]
+}
