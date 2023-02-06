@@ -1,0 +1,29 @@
+table, td, tr {
+    margin-top: 1%;
+    border: 2px solid black;
+    border-collapse: collapse;
+    text-align: center;
+    margin: auto;
+}
+
+#div_tabla h1 {
+    text-align: center;
+}
+
+
+img {
+    height: 20px;
+    width: auto;
+}
+
+.verde {
+    color: green;
+}
+
+.amarillo {
+    color: rgb(178, 178, 1);
+}
+
+.rojo {
+    color: red;
+}

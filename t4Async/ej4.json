@@ -1,0 +1,25 @@
+{
+  "series": [
+    {
+      "titulo": "Elite",
+      "cadena": "Netflix",
+      "director": "Chema honesa",
+      "anio": 2016,
+      "terminada": "no"
+    },
+    {
+      "titulo": "Hospital Central",
+      "cadena": "Globomedia",
+      "director": "Alberto mate",
+      "anio": 2002,
+      "terminada": "si"
+    },
+    {
+      "titulo": "Cuéntame como paso",
+      "cadena": "RTVE",
+      "director": "Aitor tilla",
+      "anio": 1999,
+      "terminada": "no"
+    }
+  ]
+}
