@@ -1,4 +1,4 @@
-let peticion_http;
+// Obtenemos los div para pintar la respuesta y la tabla
 let div_a_pintar = document.getElementById('div_a_pintar');
 let div_tabla = document.getElementById('div_tabla');
 
@@ -8,6 +8,7 @@ function inicio() {
     document.getElementById("enviar").addEventListener('click', add_serie, false);
 }
 
+// obtenemos los valores de los inputs para crear el objeto y enviarlo al servidor
 function add_serie() {
 
     let titulo = document.getElementById("titulo").value;
@@ -28,6 +29,7 @@ function add_serie() {
     realizarPOST(serie)
 }
 
+// realizamos una peticion POST usando fetch
 function realizarPOST(serie) {
 
     fetch("create_serie.php", {
@@ -49,12 +51,18 @@ function realizarPOST(serie) {
                 div_a_pintar.style.color = 'red'; 
             }
             div_a_pintar.innerHTML = texto_de_respuesta;
-            pintarTabla();
+            hacer_peticion_get();
         })
         .catch((err) => console.log(err));
 }
 
-function pintarTabla() {
+let boton_tabla = document.getElementById('boton_tabla');
+boton_tabla.addEventListener('click', hacer_peticion_get, false);
+
+// realizamos una peticion GET usando fetch
+function hacer_peticion_get() {
+
+  div_tabla.innerHTML = "";
 
     fetch("listar_series.php", {
         method: "GET",
@@ -69,12 +77,13 @@ function pintarTabla() {
         })
         .then((data) => {
             let json = JSON.parse(data);
+            console.log(json);
             crearTabla(json, div_tabla)
-
         })
         .catch((err) => console.log(err));
 }
 
+// creamos y pintamos la tabla recorriendo el array json
 function crearTabla(json, donde_pintar) {
 
     /*Creamos la estructura de la tabla con sus titulos*/ 
@@ -130,26 +139,26 @@ function crearTabla(json, donde_pintar) {
         let dato_titulo = document.createTextNode(json[i].titulo);
         let dato_cadena = document.createTextNode(json[i].cadena);
         let dato_director = document.createTextNode(json[i].director);
-        let dato_anio = document.createTextNode(json[i].anyo);
+        let dato_anyo = document.createTextNode(json[i].anyo);
         let dato_terminada = document.createTextNode(json[i].terminada);
 
-        (Number.parseInt(dato_anio.textContent) >= 2000 && Number.parseInt(dato_anio.textContent) <= 2011) ? 
+        (Number.parseInt(dato_anyo.textContent) >= 2000 && Number.parseInt(dato_anyo.textContent) <= 2011) ? 
             col_anio.setAttribute("class", "amarillo") :
-            Number.parseInt(dato_anio.textContent) < 2000 ?
+            Number.parseInt(dato_anyo.textContent) < 2000 ?
             col_anio.setAttribute("class", "rojo") :
-            Number.parseInt(dato_anio.textContent) > 2011 ?
+            Number.parseInt(dato_anyo.textContent) > 2011 ?
             col_anio.setAttribute("class", "verde") : null;
 
-        dato_terminada.textContent === "si"
+        dato_terminada.textContent === "1"
           ? col_terminada.appendChild(img_verde)
-          : dato_terminada.textContent === "no"
+          : dato_terminada.textContent === "0"
           ? col_terminada.appendChild(img_rojo)
           : "";
 
         col_titulo.appendChild(dato_titulo);
         col_cadena.appendChild(dato_cadena);
         col_director.appendChild(dato_director);
-        col_anio.appendChild(dato_anio);
+        col_anio.appendChild(dato_anyo);
 
         fila.appendChild(col_titulo);
         fila.appendChild(col_cadena);
