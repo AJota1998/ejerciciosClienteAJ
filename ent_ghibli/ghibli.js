@@ -1,7 +1,7 @@
 let xhr;
 let resultados = document.getElementById("resultados");
 let v_json = [];
-let v_json_check = [];
+
 
 window.onload = () => {
 	document
@@ -12,7 +12,6 @@ window.onload = () => {
 		.getElementById("registrar_envio")
 		.addEventListener("click", registrar_envio_fetch);
 };
-
 
 
 function cargar_vehiculos_xml() {
@@ -26,6 +25,7 @@ function cargar_vehiculos_xml() {
 	}
 }
 
+
 function comprobar_estado() {
 	console.log("comprobar_estado");
 
@@ -38,6 +38,7 @@ function comprobar_estado() {
         insertar_vehiculos_fetch(filtrar(vehiculos));
 	}
 }
+
 
 function filtrar(vehiculos) {
     console.log("filtrar_para_pintar");
@@ -57,6 +58,7 @@ function filtrar(vehiculos) {
 
     return v_json;    
 }
+
 
 function pintartabla(v_json) {
     console.log("pintartabla")
@@ -95,10 +97,12 @@ function pintartabla(v_json) {
 		}
 
         let td_input = document.createElement("td");
+		td_input.setAttribute("style", "border: solid 2px");
+
         let tipo_input = document.createElement("input");
         tipo_input.setAttribute("type", "checkbox");
+		tipo_input.setAttribute("id", vehiculo.id);
 
-        td_input.setAttribute("style", "border: solid 2px");
         td_input.appendChild(tipo_input);
         tr.appendChild(td_input);
         
@@ -107,6 +111,7 @@ function pintartabla(v_json) {
 
 	div_tabla.appendChild(tabla);
 }
+
 
 function insertar_vehiculos_fetch(vehiculos) {
     console.log("insertar_vehiculos_fetch")
@@ -129,29 +134,46 @@ function insertar_vehiculos_fetch(vehiculos) {
 		});
 }
 
+
 function registrar_envio_fetch() {
     console.log("registrar_envio_fetch")
 
-
     let vehiculos_seleccionados = [];
-	let hijos_tabla = document.getElementById("div_tabla").children;
 	
-	for (let i = 1; i < hijos_tabla.length; i++) {
-        let celdas_objetivo = hijos_tabla[i].children;
+	let vehiculos = document.querySelectorAll("input[type='checkbox']:checked");
+	console.log(vehiculos);
 
-        if (celdas_objetivo[4].firstChild.checked){
-            vehiculos_seleccionados.push(celdas_objetivo[0].innerText);
-        };
-        
-    }
-    console.log(vehiculos_seleccionados);
+	let vehiculo1 = document.getElementById("4e09b023-f650-4747-9ab9-eacf14540cfb").checked;
+	let vehiculo2 = document.getElementById("d8f893b5-1dd9-41a1-9918-0099c1aa2de8").checked;
+	let vehiculo3 = document.getElementById("923d70c9-8f15-4972-ad53-0128b261d628").checked;
+
+	(vehiculo1) ? vehiculos_seleccionados.push("4e09b023-f650-4747-9ab9-eacf14540cfb") : "";
+	(vehiculo2) ? vehiculos_seleccionados.push("d8f893b5-1dd9-41a1-9918-0099c1aa2de8") : "";
+	(vehiculo3) ? vehiculos_seleccionados.push("923d70c9-8f15-4972-ad53-0128b261d628") : "";
 	
-
     empleado = {
         nombre: document.getElementById("nombre").value,
         direccion: document.getElementById("direccion").value,
         telefono: document.getElementById("telefono").value,
         correo: document.getElementById("correo").value,
-        //vehiculos: vehiculos_seleccionados     
+        vehiculos: vehiculos_seleccionados  
     }
+
+	console.log(empleado);
+
+	fetch("registrar_envio.php", {
+		method: "POST",
+		headers: {
+			"Content-type": "application/json",
+		},
+		body: JSON.stringify(empleado),
+	})
+		.then((response) => {
+			if (response.ok) return response.json();
+            
+		})
+		.then((data) => {
+			console.log(data);
+            resultados.innerHTML = data.resultado;
+		});
 }
