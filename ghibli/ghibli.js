@@ -131,14 +131,27 @@ function insertar_vehiculos_fetch(vehiculos) {
 
 function registrar_envio_fetch() {
     console.log("registrar_envio_fetch")
-    
-    let array_vehiculos = [];
+
+
+    let vehiculos_seleccionados = [];
+	let hijos_tabla = document.getElementById("div_tabla").children;
+	
+	for (let i = 1; i < hijos_tabla.length; i++) {
+        let celdas_objetivo = hijos_tabla[i].children;
+
+        if (celdas_objetivo[4].firstChild.checked){
+            vehiculos_seleccionados.push(celdas_objetivo[0].innerText);
+        };
+        
+    }
+    console.log(vehiculos_seleccionados);
+	
 
     empleado = {
         nombre: document.getElementById("nombre").value,
         direccion: document.getElementById("direccion").value,
         telefono: document.getElementById("telefono").value,
         correo: document.getElementById("correo").value,
-        vehiculos: array_vehiculos      
+        //vehiculos: vehiculos_seleccionados     
     }
 }
