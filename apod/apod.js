@@ -1,6 +1,6 @@
 let xhr;
 let resultados = document.getElementById('resultados');
-let resultado_peticiones = [];
+let criminales_filtrados = [];
 
 window.onload = () => {
 
@@ -34,8 +34,8 @@ function comprobar_estado() {
 	if (xhr.readyState === 4 && xhr.status === 200) {
 		resultados.innerHTML += "Datos cargados XML <br>"
 		console.log(JSON.parse(xhr.responseText));
-		resultado_peticiones = JSON.parse(xhr.responseText);
-        pintar_options(resultado_peticiones);
+		criminales_filtrados = JSON.parse(xhr.responseText);
+        pintar_options(criminales_filtrados);
     	}
 }
 
@@ -54,9 +54,9 @@ function cargar_apod_fetch() {
 		})
 		.then((data) => {
             resultados.innerHTML += "Datos cargados Fetch <br>"
-			resultado_peticiones = data
-            console.log(resultado_peticiones);
-            pintar_options(resultado_peticiones);
+			criminales_filtrados = data
+            console.log(criminales_filtrados);
+            pintar_options(criminales_filtrados);
 		});       
 }
 
@@ -84,28 +84,28 @@ function pintar_contenido() {
 
     let select = document.getElementById("sl_apod");
 
-    for (let i = 0; i < resultado_peticiones.length; i++) {
-        if (resultado_peticiones[i].title === select.value) {
+    for (let i = 0; i < criminales_filtrados.length; i++) {
+        if (criminales_filtrados[i].title === select.value) {
 
-            resultados.innerHTML += "Mostrando APOD con título " + resultado_peticiones[i].title + "<br>"
+            resultados.innerHTML += "Mostrando APOD con título " + criminales_filtrados[i].title + "<br>"
 
             let img = document.createElement("img");
-            img.setAttribute("src", resultado_peticiones[i].url);
+            img.setAttribute("src", criminales_filtrados[i].url);
             div_pintar.appendChild(img);
             
 
             let titulo = document.createElement("h3");
-            let texto_titulo = document.createTextNode(resultado_peticiones[i].title);
+            let texto_titulo = document.createTextNode(criminales_filtrados[i].title);
             titulo.appendChild(texto_titulo);
             div_pintar.appendChild(titulo);
 
             let descripcion = document.createElement("p");
-            let texto_descripcion = document.createTextNode(resultado_peticiones[i].explanation);
+            let texto_descripcion = document.createTextNode(criminales_filtrados[i].explanation);
             descripcion.appendChild(texto_descripcion);
             div_pintar.appendChild(descripcion);
 
             let fecha = document.createElement("p");
-            let texto_fecha = document.createTextNode(resultado_peticiones[i].date);
+            let texto_fecha = document.createTextNode(criminales_filtrados[i].date);
             fecha.appendChild(texto_fecha);
             div_pintar.appendChild(texto_fecha);
 
@@ -126,14 +126,14 @@ function guardar_contenido() {
     
     let select = document.getElementById("sl_apod");
 
-    for (let i = 0; i < resultado_peticiones.length; i++) {
-        if (resultado_peticiones[i].title === select.value) {
+    for (let i = 0; i < criminales_filtrados.length; i++) {
+        if (criminales_filtrados[i].title === select.value) {
 
             apod = {
-                title: resultado_peticiones[i].title,
-                url: resultado_peticiones[i].url,
-                explanation: resultado_peticiones[i].explanation,
-                date: resultado_peticiones[i].date
+                title: criminales_filtrados[i].title,
+                url: criminales_filtrados[i].url,
+                explanation: criminales_filtrados[i].explanation,
+                date: criminales_filtrados[i].date
             }
 
             insercion_post(apod);
