@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apod</title>
+    <script defer src="apod.js"></script>
+</head>
+<body>
+
+    <div>
+        <label for="numero">Numero </label>
+        <input type="number" id="numero">
+        <button id="cargar_xml">Obtener APOD XML</button>
+        <button id="cargar_fetch">Obtener APOD Fetch</button>
+    </div>
+
+    <hr>
+
+    <div id="resultados"></div>
+
+    <hr>
+
+    <select name="select_apod" id="sl_apod"></select>
+
+    <hr>
+
+    <div id="main">
+        <div id="pintar_contenido"></div>
+    </div>
+ 
+</body>
+</html>
