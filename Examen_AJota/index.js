@@ -255,4 +255,5 @@ function limpiar_tabla() {
 
     let tabla = document.getElementById("div_tabla");
     tabla.innerHTML = "";
+    resultados.innerHTML = "tabla limpiada";
 }
