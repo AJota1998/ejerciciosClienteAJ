@@ -163,7 +163,7 @@ function guardar_personajesXML() {
     xhr.open("POST", "save_marvel_characters.php");
     xhr.setRequestHeader("Content-Type", "application/personajes_filtrados");
 
-    let personajes_a_enviar = personajes_filtrados.stringify(personajes_guardar);
+    let personajes_a_enviar = JSON.stringify(personajes_guardar);
 
     xhr.onreadystatechange = () => {
         if (xhr.readyState === 4 && xhr.status === 200) {
@@ -184,7 +184,7 @@ function obtener_personajesFETCH() {
 
     fetch("get_marvel_characters.php")
 		.then((response) => {
-			if (response.ok) return response.personajes_filtrados();
+			if (response.ok) return response.json();
             
 		})
 		.then((data) => {
